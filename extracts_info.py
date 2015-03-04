@@ -1,6 +1,7 @@
 import wave
 import struct
 import numpy
+from scipy import signal
 
 
 def open_file():
@@ -19,8 +20,16 @@ def open_file():
 	print sampwidth
 	print framerate
 	print nframes
+	return out
+
+def fftConvert(frames):
+	
+	autocorrelated = signal.fftconvolve(frames, frames[::-1], mode = 'full')
+	return autocorrelated
 
 def main():
-	open_file()
+	frames = open_file()
+	autocorrelated = fftConvert(frames)
+	print autocorrelated
 
 main()
