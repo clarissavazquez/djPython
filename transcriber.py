@@ -2,7 +2,7 @@ from abjad import *
 def extractNotes():
     file = open("musicFrequencies.txt")
     for frequency in file:
-        note = translateNote(frequency)
+        note = Note(translateNote(frequency))
         show(note)
 
 def translateNote(frequency):
@@ -113,3 +113,6 @@ def translateNote(frequency):
 	else:
 		note = "c'4"
 	return note
+
+def main():
+	extractNotes()
