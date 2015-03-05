@@ -27,6 +27,9 @@ def fftConvert(frames):
 	autocorrelated = signal.fftconvolve(frames, frames[::-1], mode = 'full')
 	return autocorrelated
 
+def getFreq(autocorrelated):
+	
+
 def main():
 	frames = open_file()
 	autocorrelated = fftConvert(frames)
