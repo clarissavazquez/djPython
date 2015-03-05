@@ -1,14 +1,20 @@
 from abjad import *
+import fileinput 
+
 def extractNotes():
     print "test1"
-    file1 = open("musicFrequencies.txt", 'r')
-    print file1
-    with file1 as frequency:
-		for freq in frequency:
-	    		freq1 = frequency.readline()
-	    		print freq1
-        		note = Note(translateNote(freq1))
-        		show(note)
+    # musicFile = open("musicFrequencies.txt", 'r')
+    # print musicFile
+    # with musicFile as freq:
+	#	 for frequency in freq:
+	#   		frequency.readline()
+	#   		print frequency
+	# for frequency in musicFile.readlines():
+	#     note = Note(translateNote(frequency))
+	#	  show(note)
+	for frequency in fileinput.input(['musicFrequencies.txt']):
+        	note = Note(translateNote(frequency))
+        	show(note)
 
 def translateNote(frequency):
 	if frequency == 27.500:
@@ -119,6 +125,5 @@ def translateNote(frequency):
 		note = "c'4"
 	return note
 
-def main():
-	extractNotes()
-main()
+extractNotes()
+
