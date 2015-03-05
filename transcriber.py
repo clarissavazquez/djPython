@@ -13,8 +13,8 @@ def extractNotes():
 	#     note = Note(translateNote(frequency))
 	#	  show(note)
 	for frequency in fileinput.input(['musicFrequencies.txt']):
-        	note = Note(translateNote(frequency))
-        	show(note)
+		note = Note(translateNote(frequency))
+		show(note)
 
 def translateNote(frequency):
 	if frequency == 27.500:
