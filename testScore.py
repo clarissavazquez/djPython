@@ -1,6 +1,6 @@
 from abjad import *
 
-def scoreFn():
+def scoreFns():
 	score = Score([])
 	piano_staff = scoretools.StaffGroup([], context_name = 'PianoStaff')
 	upper_staff = Staff([])
@@ -44,6 +44,6 @@ def scoreFn():
 	
 	show(score)
 	
-scoreFn()
+scoreFns()
 
 
