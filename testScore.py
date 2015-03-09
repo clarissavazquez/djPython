@@ -2,7 +2,7 @@ from abjad import *
 
 def scoreFn():
 	score = Score([])
-	piano_staff = scoretoolds.StaffGroup([], context_name = 'PianoStaff')
+	piano_staff = scoretools.StaffGroup([], context_name = 'PianoStaff')
 	upper_staff = Staff([])
 	lower_staff = Staff([])
 	
@@ -43,3 +43,7 @@ def scoreFn():
 	lower_measures[4].is_simultaneous = True
 	
 	show(score)
+	
+scoreFn()
+
+
