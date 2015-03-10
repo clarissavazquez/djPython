@@ -6,121 +6,117 @@ def extractNotes():
 	frequencies =[float(n) for n in f.read().split()]
 	print frequencies
 	
-	pitch_numbers = [1, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17]
-	duration = Duration(1,8)
+	pitch_numbers = [-37,-36, -34, -32, -29, -31, -29, -27, -25, -24, -22, -20,  -19, -17, -15, -13, -12, -10, -8, -7, -5, -3, -1, 0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23, 24, 26, 28, 29, 31, 33, 35, 36, 38, 40, 41, 43, 45, 47, 48]
+	duration = Duration(1,4)
 	note = scoretools.make_notes(pitch_numbers, duration)
 	staff= Staff(note)
 	show(staff)
 
 def translateNote(frequency):
         if frequency == 27.500:
-                note = "a'0"
+                note = -37 #A0
         elif frequency == 30.868:
-                note = "b'0"
+                note = -36 #B0
         elif frequency == 32.703:
-                note = "c'1"
+                note = -34 #C1
         elif frequency == 36.708:
-                note = "d'1"
+                note = -32 #D1
         elif frequency == 41.203:
-                note = "e'1"
+                note = -29  #E1
         elif frequency == 43.654:
-                note = "f'1"
+                note = -32 #F1
         elif frequency == 48.999:
-                note = "g'1"
+                note = -29 #G1
         elif frequency == 55.000:
-                note = "a'1"
+                note = -27 #A1
         elif frequency == 61.735:
-                note = "b'1"
+                note = -25 #B1
         elif frequency == 65.406:
-                note = "c'2"
+                note = -24 #C2
         elif frequency == 73.416:
-                note = "d'2"
+                note = -22 #D2
         elif frequency == 82.407:
-                note = "e'2"
+                note = -20 #E2
         elif frequency == 87.307:
-                note = "f'2"
+                note = -19 #F2
         elif frequency == 97.999:
-                note = "g'2"
+                note = -17 #G2
         elif frequency == 110.00:
-                note = "a'2"
+                note = -15 #A2
         elif frequency == 123.47:
-                note = "b'2"
+                note = -13 #B2
         elif frequency == 130.81:
-                note = "c'3"
+                note = -12 #C3
         elif frequency == 146.83:
-                note = "d'3"
+                note = -10  #D3
         elif frequency == 164.81:
-                note = "e'3"
+                note = -8 #E3
         elif frequency == 174.61:
-                note = "f'3"
+                note = -7 #F3
         elif frequency == 196.00:
-                note = "g'3"
+                note = -5 #G3
         elif frequency == 220.00:
-                note = "a'3"
+                note = -3 #A3
         elif frequency == 246.94:
-                note = "b'3"
+                note = -1 #B3
         elif frequency == 261.63:
-                note = "c'4"
+                note = 0 #C'4
         elif frequency == 293.67:
-                note == "d'4"
+                note == 2 #D'4
         elif frequency == 329.63:
-                note = 0
-        elif frequency == 293.67:
-                note == 2
-        elif frequency == 329.63:
-                note = 4
+                note = 4 #E'4
         elif frequency == 349.23:
-                note = 5
+                note == 5 #F'4
         elif frequency == 392.00:
-                note = 7
+                note = 7 #G'4
         elif frequency == 440.00:
-                note = 9
+                note = 9 #A'4
         elif frequency == 493.88:
-                note = 11
-        elif frequency == 523.25:
-                note = 12
+                note = 11 #B4
+        elif frequency == 523.251:
+                note = 12 #C'5
         elif frequency == 587.33:
-                note = 14
-        elif frequency == 659.26:
-                note = 16
-        elif frequency == 698.46:
-                note = 17
-        elif frequency == 783.99:
-                note = "g'5"
+                note = 14 #D'5
+        elif frequency == 659.255:
+                note = 16 #E'5
+        elif frequency == 698.456:
+                note = 17 #F'5
+        elif frequency == 783.991:
+                note = 19 #G'5
         elif frequency == 880.00:
-                note = "a'5"
-        elif frequency == 987.77:
-                note = "b'5"
-        elif frequency == 1046.5:
-                note = "c'6"
-        elif frequency == 1174.7:
-                note = "d'6"
-        elif frequency == 1318.5:
-                note = "e'6"
-        elif frequency == 1396.9:
-                note = "f'6"
+                note = 21 #A'5
+        elif frequency == 987.767:
+                note = 23 #B'5
+        elif frequency == 1046.50:
+                note = 24 #C'6
+        elif frequency == 1174.66:
+                note = 26 #D6
+        elif frequency == 1318.51:
+                note = 28 #E6
+        elif frequency == 1396.91:
+                note = 29 #F6
         elif frequency == 1568.0:
-                note = "g'6"
+                note = 31 #G6
         elif frequency == 1760.0:
-                note = "a'6"
+                note = 33 #A6
         elif frequency == 1975.5:
-                note = "b'6"
+                note = 35 #B6
         elif frequency == 2093.0:
-                note = "c'7"
+                note = 36 #C7
         elif frequency == 2349.3:
-                note = "d'7"
+                note = 38 #D7
         elif frequency == 2637.0:
-                note = "e'7"
+                note = 40 #E7
         elif frequency == 2793.0:
-                note = "f'7"
+                note = 41 #F7
         elif frequency == 3136.0:
-                note = "g'7"
+                note = 43 #G7
         elif frequency == 3520.0:
-                note = "a'7"
+                note = 45 #A7
         elif frequency == 3951.1:
-                note = "b'7"
+                note = 47 #B7
         elif frequency == 4186.0:
-                note = "c'8"
+                note = 48 #C8
         else:
 		print "Incorrect input"
         return note
