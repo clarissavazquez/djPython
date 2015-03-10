@@ -1,4 +1,9 @@
 from abjad import *
 
 note = Note("c'4")
-show(note)
+notes = []
+
+notes.append(note)
+notes.append(note)
+show(notes)
+
