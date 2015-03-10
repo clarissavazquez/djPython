@@ -9,7 +9,13 @@ from time import time
 import sys
 import os
 
-FILENAME = sys.argv[1]
+if len(sys.argv) == 1:
+	print "Must include a wave filename"
+	print "USAGE: 'python extracts_info.py FILENAME.wav'"
+	print
+	exit()
+else:
+	FILENAME = sys.argv[1]
 DATASIZE = os.path.getsize(FILENAME)
 FRAMERATE = 44100
 
@@ -27,10 +33,11 @@ def open_file():
 	left = out[0:2] # we will only be dealing with one channel
 			# dual channel is not nessesary since we are only
 			# reading notes
-	print "Channels: ", nchannels
-	print "SampleWidth: ", sampwidth
-	print "Framerate: ", framerate
-	print "Number of Frames: ", nframes
+	print "Filename:", FILENAME
+	print "Channels:", nchannels
+	print "SampleWidth:", sampwidth
+	print "Framerate:", framerate
+	print "Number of Frames:", nframes
 	return out
 
 def fftConvert(frames, fs):
@@ -53,9 +60,9 @@ def parabolic(f, x):
 	# This is a parabolic equation that finds the peak of the wave and returns the coordinates of that point
 	# This point is significatnt to us because it represents the main frequency
 
-    xv = 1/2 * (f[x-1] - f[x+1]) / (f[x-1] - 2 * f[x] + f[x+1]) + x
-    yv = f[x] - 1/4 * (f[x-1] - f[x+1]) * (xv - x)
-    return (xv, yv)
+	xv = 1/2 * (f[x-1] - f[x+1]) / (f[x-1] - 2 * f[x] + f[x+1]) + x
+	yv = f[x] - 1/4 * (f[x-1] - f[x+1]) * (xv - x)
+	return (xv, yv)
 	
 
 def main():
@@ -67,7 +74,7 @@ def main():
 	#print '%f Hz' % autocorrelated(signal, fs)
 	#print 'Time elapsed: %.3f s\n' % (time() - start_time)
 
-	print "Found Frequency: ", autocorrelated
+	print "Found Frequency:", autocorrelated
 
 main()
 
