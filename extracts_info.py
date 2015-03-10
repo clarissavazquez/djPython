@@ -8,6 +8,7 @@ from matplotlib.mlab import find
 from time import time
 import sys
 import os
+from martin import readNotes
 
 if len(sys.argv) == 1:
 	print "Must include a wave filename"
@@ -18,6 +19,7 @@ else:
 	FILENAME = sys.argv[1]
 DATASIZE = os.path.getsize(FILENAME)
 FRAMERATE = 44100
+
 
 
 
@@ -73,6 +75,11 @@ def main():
 	#start_time = time()
 	#print '%f Hz' % autocorrelated(signal, fs)
 	#print 'Time elapsed: %.3f s\n' % (time() - start_time)
+	
+	writenotes = open('musicFrequencies.txt', 'w')
+	writenotes.write(str(autocorrelated))
+	writenotes.close()
+	readNotes()
 
 	print "Found Frequency:", autocorrelated
 
