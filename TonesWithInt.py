@@ -1,16 +1,21 @@
 from abjad import *
+from array import array
 import fileinput
 
 def extractNotes():
 	f = open('musicFrequencies.txt', 'r')
 	frequencies =[float(n) for n in f.read().split()]
-	print frequencies
+
+	variable = []	#array that will take the notes as integers
+	for i in frequencies:
+		tones = translateNote(i)	# will translate frequencies
+		variable.append(tones)	#adds the integers to the array
 	
-	pitch_numbers = [-37,-36, -34, -32, -29, -31, -29, -27, -25, -24, -22, -20,  -19, -17, -15, -13, -12, -10, -8, -7, -5, -3, -1, 0, 2, 4, 5, 7, 9, 11, 12, 14, 16, 17, 19, 21, 23, 24, 26, 28, 29, 31, 33, 35, 36, 38, 40, 41, 43, 45, 47, 48]
-	duration = Duration(1,4)
-	note = scoretools.make_notes(pitch_numbers, duration)
-	staff= Staff(note)
-	show(staff)
+	pitch_numbers = variable	#gits the array and get pitch
+	duration = Duration(1,4)	#states the duration of the notes
+	note = scoretools.make_notes(pitch_numbers, duration)	#converts integers to notes
+	staff= Staff(note)	#creates a staff and sets the notes on them
+	show(staff)	#shows the staff
 
 def translateNote(frequency):
         if frequency == 27.500:
