@@ -8,7 +8,7 @@ def readNotes():
 
 	variable = []	#array that will take the notes as integers
 	for i in frequencies:
-		tones = translateNotes(i)	# will translate frequencies
+		tones = Note(translateNotes(i))	# will translate frequencies
 		variable.append(tones)	#adds the integers to the array
 	
 	pitch_numbers = variable	#gits the array and get pitch
