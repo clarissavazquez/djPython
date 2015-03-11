@@ -14,7 +14,7 @@ def readNotes():
 	
 	notes = ""
 		
-	music = open('musicFrequencies.txt')
+	music = open('musicFrequencies1.txt')
 	for frequency in music:
 		note = float(frequency)
 		print note
@@ -39,7 +39,7 @@ def printNotes(frequency):
 		note = "e'1"
 	elif frequency >= 42.954 and frequency <= 44.354:
 		note = "f'1"
-	elif frequency >= 48.299 and frequency <= 49.699:
+	elif frequency >= 48.299 and frequency <= 52.125:
 		note = "g'1"
 	elif frequency >= 54.3 and frequency <= 55.7:
 		note = "a'1"

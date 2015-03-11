@@ -8,7 +8,7 @@ from matplotlib.mlab import find
 from time import time
 import sys
 import os
-from martin import readNotes
+from clarissa import readNotes
 
 if len(sys.argv) == 1:
 	print "Must include a wave filename"
@@ -16,14 +16,19 @@ if len(sys.argv) == 1:
 	print
 	exit()
 else:
-	FILENAME = sys.argv[1]
-DATASIZE = os.path.getsize(FILENAME)
+	FILENAMES = []
+	for files in sys.argv[1:]: 
+		FILENAMES.append(files)
+		print files
+
+#	FILENAME = sys.argv[1]
+#DATASIZE = os.path.getsize(FILENAME)
 FRAMERATE = 44100
 
 
 
 
-def open_file():
+def open_file(FILENAME):
 	wav = wave.open(FILENAME, 'r') # opens and reads the wav file
 
 	(nchannels, sampwidth, framerate, nframes, comptype, compname) = wav.getparams() # Gets the appropriate 											 #things
@@ -68,20 +73,25 @@ def parabolic(f, x):
 	
 
 def main():
-	frames = open_file()
-	autocorrelated = fftConvert(frames, 44100)
+	
+	for FILENAME in FILENAMES:
+
+		frames = open_file(FILENAME)
+		autocorrelated = fftConvert(frames, 44100)
 
 	#print 'Calculating frequency from autocorrelation:',
 	#start_time = time()
 	#print '%f Hz' % autocorrelated(signal, fs)
 	#print 'Time elapsed: %.3f s\n' % (time() - start_time)
 	
-	writenotes = open('musicFrequencies.txt', 'w')
-	writenotes.write(str(autocorrelated))
-	writenotes.close()
-	readNotes()
+		writenotes = open('musicFrequencies.txt', 'a')
+		writenotes.write(str(autocorrelated))
+		writenotes.write('\n')
+		writenotes.close()
+		readNotes()
 
-	print "Found Frequency:", autocorrelated
+		print "Found Frequency:", autocorrelated
+	os.remove('musicFrequencies.txt')
 
 main()
 

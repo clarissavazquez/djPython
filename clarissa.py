@@ -10,12 +10,13 @@ def readNotes():
 	for i in frequencies:
 		tones = Note(translateNotes(i))	# will translate frequencies
 		variable.append(tones)	#adds the integers to the array
-	
-	pitch_numbers = variable	#gits the array and get pitch
+		print tones	
+	#pitch_numbers = variable	#gits the array and get pitch
 	duration = Duration(1,4)	#states the duration of the notes
-	note = scoretools.make_notes(pitch_numbers, duration)	#converts integers to notes
-	staff= Staff(note)	#creates a staff and sets the notes on them
+	#note = scoretools.make_notes(pitch_numbers, duration)	#converts integers to notes
+	staff= Staff(tones)	#creates a staff and sets the notes on them
 	show(staff)	#shows the staff
+	print 
 	
 def translateNotes(frequency):
 	if frequency >= 26.8 and frequency <= 28.2:
