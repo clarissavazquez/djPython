@@ -3,7 +3,7 @@ from array import array
 import fileinput
 
 def extractNotes():
-	f = open('musicFrequencies.txt', 'r')
+	f = open('testFrequencies.txt', 'r')
 	frequencies =[float(n) for n in f.read().split()]
 
 	variable = []	#array that will take the notes as integers
