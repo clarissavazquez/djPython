@@ -19,15 +19,15 @@ def extractNotes():
 
 def translateNote(frequency):
         if frequency == 27.500:
-                note = -37 #A0
+                note = -40 #A0
         elif frequency == 30.868:
-                note = -36 #B0
+                note = -38 #B0
         elif frequency == 32.703:
-                note = -34 #C1
+                note = -37 #C1
         elif frequency == 36.708:
-                note = -32 #D1
+                note = -36 #D1
         elif frequency == 41.203:
-                note = -29  #E1
+                note = -34  #E1
         elif frequency == 43.654:
                 note = -32 #F1
         elif frequency == 48.999:
