@@ -191,7 +191,7 @@ def translateNote(frequency):
         elif frequency == 4186.0:
                 note = 48 #C8
         else:
-                print "Hello"
+                print "Incorrect Input"
         return note
 
 
