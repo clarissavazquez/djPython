@@ -14,7 +14,7 @@ def readNotes():
 	
 	notes = ""
 		
-	music = open('musicFrequencies1.txt')
+	music = open('musicFrequencies.txt')
 	for frequency in music:
 		note = float(frequency)
 		print note

@@ -20,7 +20,6 @@ else: # Allows arguments to pass through into the program if good input
 	FILENAMES = []
 	for files in sys.argv[1:]: 
 		FILENAMES.append(files)
-		print files
 	
 #	FILENAME = sys.argv[1]
 #DATASIZE = os.path.getsize(FILENAME)
@@ -30,6 +29,7 @@ FRAMERATE = 44100
 
 
 def open_file(FILENAME):
+	print "===========================================";
 	# Summary: Opens a wav file to extract all the properties of the 
 	# sound wav file. We will later use the information/properties 
 	# that were extracted to calculate the frequencies.
@@ -67,7 +67,6 @@ def fftConvert(frames, fs):
 	# Finds the next peak to calculate with, ignoring any 0s
 	peak = argmax(autocorrelated[start:]) + start
 	px, py = parabolic(autocorrelated, peak)
-	print fs / px
 	return fs / px
 
 def parabolic(f, x):
@@ -225,7 +224,8 @@ def main():
 	#	writenotes.write(str(autocorrelated))
 	#	writenotes.write('\n')
 	#	writenotes.close()
-		print "Frequency = " , autocorrelated
+		print "Frequency: " , autocorrelated
+		print
 	extractNotes(frequencies)  # Passes frequencies into function where notes are displayed
 	
 #		print "Found Frequency:", autocorrelated
