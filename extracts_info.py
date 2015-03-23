@@ -11,12 +11,12 @@ import os
 from abjad import *
 from array import array
 
-if len(sys.argv) == 1:
+if len(sys.argv) == 1: # Checks for correct input from the command line
 	print "Must include a wave filename"
 	print "USAGE: 'python extracts_info.py FILENAME.wav'"
 	print
 	exit()
-else:
+else: # Allows arguments to pass through into the program if good input
 	FILENAMES = []
 	for files in sys.argv[1:]: 
 		FILENAMES.append(files)
@@ -30,62 +30,76 @@ FRAMERATE = 44100
 
 
 def open_file(FILENAME):
+	# Summary: Opens a wav file to extract all the properties of the 
+	# sound wav file. We will later use the information/properties 
+	# that were extracted to calculate the frequencies.
 	wav = wave.open(FILENAME, 'r') # opens and reads the wav file
 
-	(nchannels, sampwidth, framerate, nframes, comptype, compname) = wav.getparams() # Gets the appropriate 											 #things
+	(nchannels, sampwidth, framerate, nframes, comptype, compname) = wav.getparams() 
+	# Extracts the desired properties/information
 
-	frames = wav.readframes(nframes * nchannels) # calcs the framerate
+	frames = wav.readframes(nframes * nchannels) 
+	# Calculates the frame rate
+	# Frame rate is the frequency at which frames of the sound 
+	# are played
 
 	out = struct.unpack_from ("%dh" % nframes * nchannels, frames)
-	
-	left = out[0:2] # we will only be dealing with one channel
-			# dual channel is not nessesary since we are only
-			# reading notes
-	print "Filename:", FILENAME
-	print "Channels:", nchannels
+	# Goes through the array of the sound and extracts the desired
+	# and necessary properties that are used for calculations for 
+	# the frequency
+	print "Filename:", FILENAME			# Displays properties of the file
+	print "Channels:", nchannels			# to test for correctness. 
 	print "SampleWidth:", sampwidth
 	print "Framerate:", framerate
 	print "Number of Frames:", nframes
 	return out
 
 def fftConvert(frames, fs):
-	
-	# This makes our calc more accurate by getting rid of any negative values
+	# Summary: 
+	# Makes calculation more accurate by getting rid of any negative values
 	autocorrelated = signal.fftconvolve(frames, frames[::-1], mode = 'full')
 	autocorrelated = autocorrelated[len(autocorrelated) / 2:]
 
-	# Now to find the first low value to calculate
+	# Finds the first low value to calculate
 	difference = diff(autocorrelated)
 	start = find(difference > 0)[0]
 	
-	# Now to find the next peak to calculate with, ignoring any 0s
+	# Finds the next peak to calculate with, ignoring any 0s
 	peak = argmax(autocorrelated[start:]) + start
 	px, py = parabolic(autocorrelated, peak)
 	print fs / px
 	return fs / px
 
 def parabolic(f, x):
-
-	# This is a parabolic equation that finds the peak of the wave and returns the coordinates of that point
-	# This point is significatnt to us because it represents the main frequency
-
+	# Summary: This is a parabolic equation that finds the peak of the wave and returns
+	# the coordinates of that point. This point is significant because it
+	# represents the main frequency.
 	xv = 1/2 * (f[x-1] - f[x+1]) / (f[x-1] - 2 * f[x] + f[x+1]) + x
 	yv = f[x] - 1/4 * (f[x-1] - f[x+1]) * (xv - x)
 	return (xv, yv)
 
 def extractNotes(frequencies):
-	variable = []
+	# Summary: Passes the calculated frequencies in so it can be called into the 
+	# translateNote function. This function mainly serves to retrieve and pass the
+	# information/properties of the sound files. 
+	variable = []  # Empty array declared which will be filled with the notes.  
 	for i in frequencies:
+		# Iterates through the frequencies and passes them into the function
+		# which translates the notes from frequencies to actual notes. 
 		tones = translateNote(i)
-		variable.append(tones)
+		variable.append(tones)  # Adds the notes to the variable array. 
 
-        pitch_numbers = variable    #gits the array and get pitch
-        duration = Duration(1,4)        #states the duration of the notes
-        note = scoretools.make_notes(pitch_numbers, duration)   #converts integers to notes
-        staff= Staff(note)      #creates a staff and sets the notes on them
-        show(staff) 	
+        pitch_numbers = variable		# Gets the array and pitch
+        duration = Duration(1,4)    # Assigns the duration of the note
+        note = scoretools.make_notes(pitch_numbers, duration)  # Creates the score	
+        
+        staff= Staff(note)  # Creates the staff, sets the notes to the
+        show(staff) 			# corresponding spot and then displays staff
 
 def translateNote(frequency):
+		# Summary: Takes in frequencies and runs through this if statement
+		# to find its corresponding note indicator. Returns the note to be
+		# passed into the function where the note is displayed. 
         if frequency > 25.957 and frequency < 29.135:
                 note = -40 #A0
         elif frequency >= 29.135 and frequency < 31.568:
@@ -197,12 +211,11 @@ def translateNote(frequency):
 
 
 def main():
-	frequencies = []
+	frequencies = []  # Declares an empty array where we will store frequencies
 	for FILENAME in FILENAMES:
-
-		frames = open_file(FILENAME)
-		autocorrelated = fftConvert(frames, 44100)
-		frequencies.append(autocorrelated)
+		frames = open_file(FILENAME)  # Extracts the sound properties
+		autocorrelated = fftConvert(frames, 44100)  # Calculates frequencies
+		frequencies.append(autocorrelated)  # Adds the frequencies into the array
 	#print 'Calculating frequency from autocorrelation:',
 	#start_time = time()
 	#print '%f Hz' % autocorrelated(signal, fs)
@@ -213,7 +226,7 @@ def main():
 	#	writenotes.write('\n')
 	#	writenotes.close()
 		print "Frequency = " , autocorrelated
-	extractNotes(frequencies)
+	extractNotes(frequencies)  # Passes frequencies into function where notes are displayed
 	
 #		print "Found Frequency:", autocorrelated
 #	os.remove('musicFrequencies.txt')
