@@ -55,7 +55,7 @@ def open_file(FILENAME):
 	return out
 
 def fftConvert(frames, fs):
-	# Summary: 
+	# Summary: Extracts variables necessary to calculate the frequency
 	# Makes calculation more accurate by getting rid of any negative values
 	autocorrelated = signal.fftconvolve(frames, frames[::-1], mode = 'full')
 	autocorrelated = autocorrelated[len(autocorrelated) / 2:]
