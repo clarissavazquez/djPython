@@ -99,110 +99,160 @@ def translateNote(frequency):
 		# Summary: Takes in frequencies and runs through this if statement
 		# to find its corresponding note indicator. Returns the note to be
 		# passed into the function where the note is displayed. 
-        if frequency > 25.957 and frequency < 29.135:
-                note = -40 #A0
-        elif frequency >= 29.135 and frequency < 31.568:
-                note = -38 #B0
-        elif frequency >= 32.003 and frequency <= 33.403:
-                note = -37 #C1
-        elif frequency >= 29.708 and frequency <= 31.108:
-                note = -36 #D1
-        elif frequency >= 40.503 and frequency <= 41.903:
-                note = -34  #E1
-        elif frequency >= 42.954 and frequency <= 44.354:
-                note = -32 #F1
-        elif frequency >= 48.299 and frequency <= 51.9:
+	if frequency >= 16.352 and frequency <= 17.324:
+                note = -48 # C0
+        elif frequency >= 18.354 and frequency <= 19.445:
+                note = -46 # D0
+        elif frequency >= 20.602 and frequency < 21.827:
+                note = -44 # E0
+        elif frequency >= 21.827 and frequency <= 23.125:
+                note = -43 # F0
+        elif frequency >= 24.500 and frequency <= 25.957:
+                note = -41 # G0
+        elif frequency >= 27.5  and frequency <= 29.135:
+                note = -39 #A0
+        elif frequency >= 30.868 and frequency < 32.703:
+                note = -37 #B0
+        elif frequency >= 32.703 and frequency <= 34.648:
+                note = -36 #C1
+        elif frequency >= 36.708 and frequency <= 38.891:
+                note = -34 #D1
+        elif frequency >= 41.1 and frequency < 43.654:
+                note = -32  #E1
+        elif frequency >= 43.654 and frequency <= 46.249:
+                note = -31 #F1
+        elif frequency >= 48.999 and frequency <= 51.9:
                 note = -29 #G1
-        elif frequency >= 54.3 and frequency <= 55.7:
+        elif frequency >= 54.3 and frequency <= 58.270:
                 note = -27 #A1
-        elif frequency >= 61.035 and frequency <= 62.435:
+        elif frequency >= 61.735 and frequency < 65.406:
                 note = -25 #B1
-        elif frequency >= 64.706 and frequency <= 66.106:
+        elif frequency >= 65.406 and frequency <= 69.296:
                 note = -24 #C2
-        elif frequency >= 72.716 and frequency <= 74.116:
+        elif frequency >= 72.716 and frequency <= 77.782:
                 note = -22 #D2
-        elif frequency >= 81.707 and frequency <= 83.107:
+        elif frequency >= 81.707 and frequency < 87.307:
                 note = -20 #E2
-        elif frequency >= 86.607 and frequency <= 88.007:
+        elif frequency >= 87.307 and frequency <= 92.499:
                 note = -19 #F2
-        elif frequency >= 97.299 and frequency <= 98.669:
+        elif frequency >= 97.299 and frequency <= 103.83:
                 note = -17 #G2
-        elif frequency >= 109.3 and frequency <= 110.7:
+        elif frequency >= 109.3 and frequency <= 116.57:
                 note = -15 #A2
-        elif frequency >= 122.77 and frequency <= 124.17:
+        elif frequency >= 122.77 and frequency < 130.81:
                 note = -13 #B2
-        elif frequency >= 130.11 and frequency <= 131.51:
+        elif frequency >= 130.11 and frequency <= 138.59:
                 note = -12 #C3
-        elif frequency >= 146.13 and frequency <= 147.53:
+        elif frequency >= 146.13 and frequency <= 155.56:
                 note = -10  #D3
-        elif frequency >= 164.11 and frequency <= 165.51:
+        elif frequency >= 164.11 and frequency <= 174.61:
                note = -8 #E3
-        elif frequency >= 173.91 and frequency <= 175.31:
+        elif frequency >= 173.91 and frequency <= 185.31:
                 note = -7 #F3
-        elif frequency >= 195.3 and frequency <= 196.7:
+        elif frequency >= 195.3 and frequency <= 207.65:
                 note = -5 #G3
-        elif frequency >= 219.3 and frequency <= 220.7:
+        elif frequency >= 219.3 and frequency <= 233.08:
                 note = -3 #A3
-        elif frequency >= 246.24 and frequency <= 247.64:
+	elif frequency >= 246.94 and frequency < 261.63:
                 note = -1 #B3
-        elif frequency >= 260.93 and frequency <= 262.33:
+        elif frequency >= 260.93 and frequency <= 277.33:
                 note = 0 #C'4
-        elif frequency >= 292.97 and frequency <= 294.37:
+        elif frequency >= 292.97 and frequency <= 311.37:
                 note = 2 #D'4
-        elif frequency >= 328.93 and frequency <= 330.33:
+        elif frequency >= 328.63 and frequency < 349.23:
                 note = 4 #E'4
-        elif frequency >= 348.53 and frequency <= 349.93:
+        elif frequency >= 348.53 and frequency <= 369.93:
                 note = 5 #F'4
-        elif frequency >= 391.3 and frequency <= 392.7:
+        elif frequency >= 391.3 and frequency <= 415.7:
                 note = 7 #G'4
-        elif frequency >= 439.3 and frequency <= 440.7:
+        elif frequency >= 439.3 and frequency <= 466.7:
                 note = 9 #A'4
-        elif frequency >= 493.18 and frequency <= 494.58:
+        elif frequency >= 493.18 and frequency <= 523.58:
                 note = 11 #B4
-        elif frequency >= 522.8 and frequency <= 524.2:
+        elif frequency >= 522.8 and frequency <= 554.2:
                 note = 12 #C'5
-        elif frequency >= 586.63 and frequency <= 588.03:
+        elif frequency >= 586.63 and frequency <= 622.23:
                 note = 14 #D'5
-        elif frequency >= 658.56 and frequency <= 659.96:
+        elif frequency >= 658.56 and frequency < 698.46:
                 note = 16 #E'5
-        elif frequency >= 697.76 and frequency <= 699.16:
+        elif frequency >= 698.46 and frequency <= 739.96:
                 note = 17 #F'5
-        elif frequency >= 783.29 and frequency <= 784.69:
+        elif frequency >= 783.29 and frequency <= 830.69:
                 note = 19 #G'5
-        elif frequency >= 879.3 and frequency <= 880.7:
+        elif frequency >= 879.3 and frequency <= 932.33:
                 note = 21 #A'5
-        elif frequency >= 987.07 and frequency <= 988.47:
+        elif frequency >= 987.07 and frequency < 1046.5:
                 note = 23 #B'5
-        elif frequency >= 1045.8 and frequency <= 1047.2:
+        elif frequency >= 1046.5 and frequency <= 1108.7:
                 note = 24 #C'6
-        elif frequency >= 1174 and frequency <= 1175.4:
+        elif frequency >= 1174.7 and frequency <= 1244.5:
                 note = 26 #D6
-        elif frequency >= 1317.8 and frequency <= 1319.2:
+        elif frequency >= 1318.5 and frequency < 1396.9:
                 note = 28 #E6
-        elif frequency >= 1396.2 and frequency <= 1397.6:
+        elif frequency >= 1396.9 and frequency <= 1480.0:
                 note = 29 #F6
-        elif frequency >= 1567.3 and frequency <= 1568.7:
+        elif frequency >= 1568.0 and frequency <= 1661.2:
                 note = 31 #G6
-        elif frequency >= 1759.3 and frequency <= 1760.7:
+	elif frequency >= 1760.0 and frequency <= 1864.7:
                 note = 33 #A6
-        elif frequency >= 1974.8 and frequency <= 1976.2:
+        elif frequency >= 1975.5 and frequency < 2093.0:
                 note = 35 #B6
-        elif frequency >= 2092.3 and frequency <= 2093.7:
+        elif frequency >= 2093.7 and frequency <= 2217.5:
                 note = 36 #C7
-        elif frequency >= 2348.6 and frequency <= 2350:
+        elif frequency >= 2349.3 and frequency <= 2489.0:
                 note = 38 #D7
-        elif frequency >= 2636.3 and frequency <= 2637.7:
+        elif frequency >= 2637.0 and frequency < 2793.8:
                 note = 40 #E7
-        elif frequency >= 2792.3 and frequency <= 2793.7:
+        elif frequency >= 2793.8 and frequency <= 2960.0:
                 note = 41 #F7
-        elif frequency >= 3135.3 and frequency <= 3136.7:
+        elif frequency >= 3136.0 and frequency <= 3322.4:
                 note = 43 #G7
-        elif frequency >= 3519.3 and frequency <= 3520.7:
+        elif frequency >= 3520.0 and frequency <= 3729.3:
                 note = 45 #A7
-        elif frequency >= 3950.4 and frequency <= 3951.8:
+        elif frequency >= 3951.1 and frequency < 4186.0:
                 note = 47 #B7
-        elif frequency == 4186.0:
-                note = 48 #C8
+        elif frequency >= 4186.0 and frequency <= 4434.9:
+                        note = 48 #C8
+        elif frequency >= 4698.6 and frequency <= 4978.0:
+                        note = 50 #D8
+        elif frequency >= 5274.0 and frequency < 5587.7:
+                        note = 52 #E8
+        elif frequency >= 5587.7 and frequency <= 5919.9:
+                        note = 53 #F8
+        elif frequency >= 6271.9 and frequency <= 6644.9:
+                        note = 55 #G8
+        elif frequency >= 7040.0 and frequency <= 7458.6:
+                        note = 57 #A8
+        elif frequency >= 7902.1 and frequency <= 8372.0:
+                        note = 59 #B8
+        elif frequency >= 8372.0 and frequency <= 8869.8:
+                        note = 60 #C9
+        elif frequency >= 9397.3 and frequency <= 9956.1:
+                        note = 62 # D9
+        elif frequency >= 10548.1 and frequency < 11175.3:
+                        note = 64 #E9
+        elif frequency >= 11175.3 and frequency <= 11839.8:
+                        note = 65 #F9
+   	elif frequency >= 12543.9 and frequency <= 13289.8:
+                        note = 67 #G9
+        elif frequency >= 14080.0 and frequency <= 14917.2:
+                        note = 69 #A9
+        elif frequency >= 15804.3 and frequency < 16744.0:
+                        note = 71 #B9
+        elif frequency >= 16744.0 and frequency <= 17739.7:
+                        note = 72 # C10
+        elif frequency >= 18794.5 and frequency <= 19912.1:
+                        note = 74 #D10
+        elif frequency >= 21096.2 and frequency < 22350.6:
+                        note = 76 #E10
+        elif frequency >= 22350.6 and frequency <= 23679.6:
+                        note = 77 #F10
+        elif frequency >= 25087.7 and frequency <= 26579.5:
+                        note = 79 #G10
+        elif frequency >= 28160.0 and frequency <= 29834.5:
+                        note = 81 #A10
+        elif frequency >= 31608.5:
+                        note = 83 #B10
         else:
                 print "Incorrect Input"
         return note
