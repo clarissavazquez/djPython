@@ -1,19 +1,13 @@
 ///////////////////////////////////
 
 
-djPython is a python written scriptor that scans music given to it and prints the notes on a notesheet.
+djPython is an open source projecct that is used to identify musical frequencies.
+The Git files can be imported into any python file and our functions can be used in other programs also.
 
-This project is still underway and uses Python 2.7.x in conjunction with audioop and Frescobaldi.
-
-WHAT NEEDS TO BE DONE:
-1. Extract frequency from song
-2. Plot frequency and time to a file
-3. Read file and display notes
-
-Martin Almaraz: Reading/writing frequencies
-Clarissa Vazquez: Read frequencies and display appropriate notes
-Manuel Rosales: Reading/writing frequencies
-Benito Sanchez: Reading/writing frequencies
+Members of the team:
+- Martin Almaraz -- Calculated the frequency of the .wav files from fft translation.
+- Clarissa Vazquez -- Did all the documentation and bug tracing. Also contributed greatly to the abjad sheet music pdf makers
+- Benito Sanchez -- Expanded on the musical sheet translation and allowed for more integration such as multiple notes and proper implementaion
+- Manuel Rosales -- Researched and general help with code throughout the project.
 
 
-Contributers: Benito Sanchez, Martin Almaraz, Clarissa Vazquez, and Manuel Rosales
